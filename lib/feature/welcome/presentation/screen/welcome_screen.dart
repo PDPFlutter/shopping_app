@@ -13,6 +13,7 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            // TODO: shu yerga ... qo'shish
             const Text(AppStrings.shopin, style: AppTextStyles.headlineLarge),
             const SizedBox(height: AppDimens.d64),
             const Text(AppStrings.amazing, style: AppTextStyles.headlineMedium),
@@ -23,6 +24,7 @@ class WelcomeScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: AppDimens.d250),
+            // FIXME: shuni tog'irlash kerak
             AppFilledButton(onPressed: () {}, title: AppStrings.explore),
           ],
         ),
