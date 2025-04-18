@@ -4,6 +4,6 @@ abstract class AuthRepository {
   Future<bool> signIn(String email, String password);
   Future<bool> signUp(User user);
   Future<bool> forgotPassword(String email);
-  Future<bool> resetPassword(String password);
+  Future<bool> resetPassword(String password, String email);
   Future<bool> isRegistered();
 }

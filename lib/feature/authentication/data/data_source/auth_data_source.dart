@@ -10,14 +10,9 @@ abstract class AuthDataSource {
 
 class AuthDataSourceImpl implements AuthDataSource {
   static Map<String, Object?> dataSource = {
-    '1': {
-      'id': 1,
-      'name': "Nasibali",
-      'email': 'pdp@email.com',
-      'password': 'Root1234'
-    }
+    '1': {'id': 1, 'name': "Nasibali", 'email': 'pdp@email.com', 'password': 'Root1234'}
   };
-  static String? currentUserId; 
+  static String? currentUserId;
 
   @override
   Future<Response> signUp(Map<String, Object?> data) async {
@@ -42,19 +37,17 @@ class AuthDataSourceImpl implements AuthDataSource {
     Map<String, Object?>? response;
     dataSource.forEach((key, value) {
       final user = Map<String, Object?>.from(value as Map);
-      if(user['email'] == email && user['password'] == password) {
+      if (user['email'] == email && user['password'] == password) {
         response = user;
         return;
       }
     });
 
-    if(response != null) {
+    if (response != null) {
       currentUserId = response!['id'].toString();
       return const Response(success: true);
     } else {
-      return const Response(success: false, errors: [
-        Error(key: 'id', message: "Iltimos ma'lumotlarni to'gri kiriting!")
-      ]);
+      return const Response(success: false, errors: [Error(key: 'id', message: "Iltimos ma'lumotlarni to'gri kiriting!")]);
     }
   }
 
@@ -64,18 +57,16 @@ class AuthDataSourceImpl implements AuthDataSource {
     Map<String, Object?>? response;
     dataSource.forEach((key, value) {
       final user = Map<String, Object?>.from(value as Map);
-      if(user['email'] == email) {
+      if (user['email'] == email) {
         response = user;
         return;
       }
     });
 
-    if(response != null) {
+    if (response != null) {
       return const Response(success: true);
     } else {
-      return const Response(success: false, errors: [
-        Error(key: 'email', message: "Bu emaildagi foydalanuvchi topilmadi!")
-      ]);
+      return const Response(success: false, errors: [Error(key: 'email', message: "Bu emaildagi foydalanuvchi topilmadi!")]);
     }
   }
 
@@ -86,13 +77,13 @@ class AuthDataSourceImpl implements AuthDataSource {
     Map<String, Object?>? response;
     dataSource.forEach((key, value) {
       final user = Map<String, Object?>.from(value as Map);
-      if(user['email'] == email) {
+      if (user['email'] == email) {
         response = user;
         return;
       }
     });
 
-    if(response != null) {
+    if (response != null) {
       final datas = Map<String, Object?>.from(data);
       final id = response!['id'] as int;
       response!['password'] = password;
@@ -100,15 +91,13 @@ class AuthDataSourceImpl implements AuthDataSource {
       dataSource = datas;
       return const Response(success: true);
     } else {
-      return const Response(success: false, errors: [
-        Error(key: 'id', message: "Iltimos ma'lumotlarni to'gri kiriting!")
-      ]);
+      return const Response(success: false, errors: [Error(key: 'id', message: "Iltimos ma'lumotlarni to'gri kiriting!")]);
     }
   }
 
   @override
   Future<Response> isRegistered() async {
-    if(dataSource.isEmpty) {
+    if (dataSource.isEmpty) {
       return const Response(success: false);
     }
     currentUserId = dataSource.keys.first;
