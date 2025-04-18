@@ -6,12 +6,6 @@ class AppFilledButton extends StatelessWidget {
   final void Function()? onPressed;
   final String title;
 
-  /**
-      # hello world
-      [AppFilledButton] - bu button ilovaning ko'p qismlarida
-      ishlatiladi. ....
-      .....
-   **/
   const AppFilledButton({required this.onPressed, required this.title, super.key});
 
   @override

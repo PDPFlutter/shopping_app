@@ -4,7 +4,6 @@ import '../../../config/theme/images.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
-  /// bu ilovada asosiy oynaning backgraound qismini ko'rsatuvchi widget
   const Background({required this.child, super.key});
 
   @override
